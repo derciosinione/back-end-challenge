@@ -30,6 +30,7 @@ namespace back_end_challenge.Controllers
 
 
     //GET api/categories/
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> GetAllCategories([FromQuery] RequestParams requestParams)
     {
@@ -44,6 +45,7 @@ namespace back_end_challenge.Controllers
 
 
     //GET api/categories/{id}
+    [Authorize]
     [HttpGet("{id:int}", Name = "GetCategoryById")]
     public async Task<IActionResult> GetCategoryById(int id)
     {
@@ -54,6 +56,7 @@ namespace back_end_challenge.Controllers
 
 
     //GET api/categories/{name}
+    [Authorize]
     [HttpGet("{name}")]
     public async Task<IActionResult> GetCategoryByName(string name, [FromQuery] RequestParams requestParams)
     {
@@ -69,6 +72,7 @@ namespace back_end_challenge.Controllers
 
 
     //GET api/categories/{id}/books
+    [Authorize]
     [HttpGet("{id:int}/books")]
     public async Task<IActionResult> GetCategoryWithBooks(int id)
     {
@@ -79,6 +83,7 @@ namespace back_end_challenge.Controllers
 
 
     //POST api/categories/
+    [Authorize]
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status201Created)]
@@ -95,6 +100,7 @@ namespace back_end_challenge.Controllers
     }
 
     //POST api/categories/
+    [Authorize]
     [HttpPost]
     [Route("range")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -118,6 +124,7 @@ namespace back_end_challenge.Controllers
 
 
     //PUT api/categories/
+    [Authorize]
     [HttpPut("{id:int}")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -139,6 +146,7 @@ namespace back_end_challenge.Controllers
 
 
     //DELETE api/categories/
+    [Authorize]
     [HttpDelete("{id:int}")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]

@@ -6,6 +6,7 @@ using AutoMapper;
 using back_end_challenge.Dtos;
 using back_end_challenge.IRepository;
 using back_end_challenge.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -30,6 +31,7 @@ namespace back_end_challenge.Controllers
 
 
     //GET api/authors/
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> GetAllAuthors([FromQuery] RequestParams requestParams)
     {
@@ -44,6 +46,7 @@ namespace back_end_challenge.Controllers
 
 
     //GET api/authors/{id}
+    [Authorize]
     [HttpGet("{id:int}", Name = "GetAuthorById")]
     public async Task<IActionResult> GetAuthorById(int id)
     {
@@ -54,6 +57,7 @@ namespace back_end_challenge.Controllers
 
 
     //GET api/authors/{search}
+    [Authorize]
     [HttpGet("{name}")]
     public async Task<IActionResult> GetAuthorByName(string name, [FromQuery] RequestParams requestParams)
     {
@@ -69,6 +73,7 @@ namespace back_end_challenge.Controllers
 
 
     //GET api/authors/{id}/books
+    [Authorize]
     [HttpGet("{id:int}/books")]
     public async Task<IActionResult> GetAuthorWithBooks(int id)
     {
@@ -79,6 +84,7 @@ namespace back_end_challenge.Controllers
 
 
     //POST api/authors/
+    [Authorize]
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status201Created)]
@@ -100,6 +106,7 @@ namespace back_end_challenge.Controllers
 
 
     //POST api/authors/
+    [Authorize]
     [HttpPost]
     [Route("range")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -123,6 +130,7 @@ namespace back_end_challenge.Controllers
 
 
     //POST api/authors/
+    [Authorize]
     [HttpPut("{id:int}")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -145,6 +153,7 @@ namespace back_end_challenge.Controllers
 
 
     //DELETE api/authors/
+    [Authorize]
     [HttpDelete("{id:int}")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]

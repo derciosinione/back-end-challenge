@@ -6,12 +6,14 @@ using AutoMapper;
 using back_end_challenge.Dtos;
 using back_end_challenge.IRepository;
 using back_end_challenge.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace back_end_challenge.Controllers
 {
+  [Authorize]
   [Route("api/books")]
   [ApiController]
   public class BooksController : ControllerBase

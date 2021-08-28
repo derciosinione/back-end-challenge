@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 
 namespace back_end_challenge.Controllers
 {
+  [Authorize]
   [Route("api/sales")]
   [ApiController]
   public class BookSalesController : ControllerBase
